@@ -2,74 +2,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anxiel Math Search</title>
+    <title>Anxiel Math</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
-        body {
-            font-family: 'Oswald', sans-serif;
-            background-color: white;
-            color: black;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        .header {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            position: relative;
-            color: black;
-        }
-        .header span {
-            display: block;
-            line-height: 1;
-        }
-        .anxiel {
-            color: blue;
-            font-size: 3.5rem;
-        }
-        .math {
-            color: red;
-            font-size: 2.5rem;
-        }
-        .search-container {
-            margin-top: 20px;
-            width: 50%;
-            text-align: center;
-        }
-        .search-bar {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid black;
-            border-radius: 25px;
-            font-size: 1.2rem;
-            outline: none;
-            text-align: center;
-        }
-        .footer {
-            position: absolute;
-            bottom: 10px;
-            text-align: center;
-            font-size: 1rem;
-            color: black;
-        }
+        body { font-family: 'Oswald', sans-serif; background: white; color: black; text-align: center; }
+        header { background: blue; color: white; padding: 20px; font-size: 24px; }
+        nav { background: red; padding: 10px; }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 18px; }
+        .search-container { margin: 30px; }
+        input { padding: 10px; width: 60%; font-size: 18px; }
+        .results { margin-top: 20px; font-size: 20px; }
+        footer { background: black; color: white; padding: 10px; margin-top: 30px; }
     </style>
 </head>
 <body>
-    <div class="header">
-        <span class="anxiel">Anxiel</span>
-        <span class="math">Math</span>
-    </div>
-    <div class="search-container">
-        <input type="text" class="search-bar" placeholder="Search...">
-    </div>
-    <div class="footer">
-        &copy; 2025 Anxiel Math. All Rights Reserved.
-    </div>
+    <header>
+        <h1>Anxiel <br> Math</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#math-inventions">My Inventions</a>
+    </nav><div class="search-container">
+    <input type="text" id="search" placeholder="Search math concepts..." oninput="searchMath()">
+    <div class="results" id="results"></div>
+</div>
+
+<footer>
+    <p>© 2024 Anxiel Math. All Rights Reserved.</p>
+</footer>
+
+<script>
+    const mathData = {
+        "pi": "Pi (π) is approximately 3.14159 and is used in circles, trigonometry, and physics.",
+        "euler": "Euler’s constant (e) is approximately 2.718 and is important in logarithms and exponential growth.",
+        "symbols": "Common math symbols: ∑ (Summation), √ (Square root), ∞ (Infinity), ≠ (Not equal to)"
+    };
+    
+    function searchMath() {
+        const query = document.getElementById('search').value.toLowerCase();
+        const resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = mathData[query] || "No results found.";
+    }
+</script>
+
 </body>
 </html>
